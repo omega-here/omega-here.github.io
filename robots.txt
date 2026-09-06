@@ -1,0 +1,5 @@
+# Example 3
+User-agent: *
+Disallow: /
+
+Sitemap: https://omega.twelixty.com/sitemap.xml
