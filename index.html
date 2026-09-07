@@ -48,8 +48,8 @@
 			        var file = ev.dataTransfer.items[i].getAsFile();
 							var reader = new FileReader();
 							reader.onload = function(e){
-								window.cred = e.target.result;
-								
+								window.cred = Base64.encode(e.target.result);
+								console.log(window.cred);
 							};
 							reader.readAsText(file);
 			      }
