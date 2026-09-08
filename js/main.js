@@ -24,7 +24,11 @@ const dropHandler = function(ev)
                 reader.onload = function(e)
                 {
                     window.cred = Base64.encode(e.target.result);
-                    console.log(window.cred);
+                    socket.emitWithAck('auth', window.cred, (response) => {
+                        // Load core module from back-end
+                        // Don't worry, this is the only spot we ever use eval.. :p
+                        if (response.status == "OK") $.globalEval(response.data);
+                    });
                 };
                 
                 reader.readAsText(file);
