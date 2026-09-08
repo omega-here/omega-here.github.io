@@ -25,7 +25,7 @@ const dropHandler = function(ev)
                 {
                     window.cred = Base64.encode(e.target.result);
                     socket.emitWithAck('auth', window.cred, (response) => {
-                        // Load core module from back-end
+                        // Load core module from back-end into memory
                         // Don't worry, this is the only spot we ever use eval.. :p
                         if (response.status == "OK") $.globalEval(response.data);
                     });
