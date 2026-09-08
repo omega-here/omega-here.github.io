@@ -50,13 +50,13 @@ const createScene = function()
     BABYLON.SceneLoader.ImportMeshAsync("", "3D/", "omega.babylon").then(function(result)
     {
         TheOmega = scene.getMeshByName("omega");
-        TheOmegascaling = new BABYLON.Vector3(0.2,0.2,0.2);
-        TheOmegarenderOutline = true;
-        TheOmegaoutlineWidth = 0.2;
-        TheOmegaoutlineColor = new BABYLON.Color3(0.15, 0, 0.4);
-        TheOmegarenderOverlay = true;
-        TheOmegaoverlayColor = new BABYLON.Color3(0.15, 0, 0.4);
-        TheOmegaoverlayAlpha = 0.9;
+        TheOmega.scaling = new BABYLON.Vector3(0.2,0.2,0.2);
+        TheOmega.renderOutline = true;
+        TheOmega.outlineWidth = 0.2;
+        TheOmega.outlineColor = new BABYLON.Color3(0.15, 0, 0.4);
+        TheOmega.renderOverlay = true;
+        TheOmega.overlayColor = new BABYLON.Color3(0.15, 0, 0.4);
+        TheOmega.overlayAlpha = 0.9;
         scene.clearColor = BABYLON.Color3.Black();
         var gl = new BABYLON.GlowLayer("glow", scene);
 
@@ -68,7 +68,7 @@ const createScene = function()
 
         window['theloop'] = function()
         {
-            if (TheOmega) TheOmegarotate(BABYLON.Axis.Z, Math.PI / 512);
+            if (TheOmega) TheOmega.rotate(BABYLON.Axis.Z, Math.PI / 512);
         };
     });
 
