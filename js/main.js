@@ -75,9 +75,6 @@ const createScene = function()
     return scene;
 };
 
-const scene = createScene();
-
-// Register a render loop to repeatedly render the scene
 engine.runRenderLoop(function()
 {
     try {
@@ -87,8 +84,9 @@ engine.runRenderLoop(function()
     scene.render();
 });
 
-// Watch for browser/canvas resize events
 window.addEventListener("resize", function()
 {
     engine.resize();
 });
+
+const scene = createScene();
