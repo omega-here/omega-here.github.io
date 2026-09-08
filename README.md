@@ -1,2 +1,3 @@
-### Omega
-**Website for the secure in-browser operating system, Omega.**
+### OmegaOS
+## By, The Disillusionment Society
+**Website for the secure in-browser operating system.**
