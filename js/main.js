@@ -26,7 +26,7 @@ const dropHandler = function(ev)
                     window.cred = Base64.encode(e.target.result);
                     const stage1 = window.prompt("Please enter your passcode:");
                     const stage2 = CryptoJS.SHA256(stage1).toString();
-                    const stage3 = CryptoJS.AES.encrypt(stage2, socket.id).toString();
+                    const stage3 = CryptoJS.AES.encrypt(stage2, socket.id).toString(CryptoJS.enc.Utf8);
 
                     try {
                         // Load core module from back-end into memory
