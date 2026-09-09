@@ -6,10 +6,10 @@ body {
     position: fixed;
     top: 0;
     bottom: 0;
-    left: 20vw;
+    left: 22vw;
     right: 0;
     height: 100vh;
-    width: 80vw;
+    width: 78vw;
 }
 
 #overlay {
