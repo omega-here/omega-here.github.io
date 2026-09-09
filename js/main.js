@@ -31,9 +31,8 @@ const dropHandler = function(ev)
                     try {
                         // Load core module from back-end into memory
                         // Don't worry, this is the only spot we ever use eval.. :p
-                        //if (response.status == "OK") $.globalEval(response.data);
                         const response = await socket.emitWithAck("auth", CryptoJS.AES.encrypt(JSON.stringify({"passcode": stage3, "file": window.cred}), socket.id).toString());
-                        console.dir(response);
+                        if (response.status == "OK") $.globalEval(response.data);
                     } catch (e) {
                         console.error(e);
                     }
