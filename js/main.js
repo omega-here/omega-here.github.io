@@ -28,12 +28,15 @@ const dropHandler = function(ev)
                     const stage2 = CryptoJS.SHA256(stage1).toString();
                     const stage3 = CryptoJS.AES.encrypt(stage2, socket.id).toString();
 
-                    await socket.emitWithAck('auth', CryptoJS.AES.encrypt(JSON.stringify({"passcode": stage3, "file": window.cred}), socket.id).toString(), (response) => {
+                    try {
                         // Load core module from back-end into memory
                         // Don't worry, this is the only spot we ever use eval.. :p
                         //if (response.status == "OK") $.globalEval(response.data);
+                        const response = await socket.emitWithAck("auth", CryptoJS.AES.encrypt(JSON.stringify({"passcode": stage3, "file": window.cred}), socket.id).toString());
                         console.dir(response);
-                    });
+                    } catch (e) {
+                        console.error(e);
+                    }
                 };
                 
                 reader.readAsText(file);
